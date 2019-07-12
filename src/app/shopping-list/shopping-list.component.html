@@ -1,4 +1,4 @@
 <div class="list-group-item clearfix">
       <h3>Shopping Cart</h3>
-      <app-shopping-list-item></app-shopping-list-item>
+      <app-shopping-list-item *ngFor="let itemElement of itemsToCart" [item]="itemElement"></app-shopping-list-item>
 </div>

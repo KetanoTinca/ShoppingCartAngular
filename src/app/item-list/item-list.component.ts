@@ -10,13 +10,7 @@ import { ItemService } from "../item.service";
 export class ItemListComponent implements OnInit {
 
   items: Item[];
-  itemsToCart: Item[] = [];
-
-  onAdd(itemRecived: Item) {
-
-    this.itemsToCart.push(itemRecived);
-
-  }
+  
 
   constructor(private itemService: ItemService) { }
 

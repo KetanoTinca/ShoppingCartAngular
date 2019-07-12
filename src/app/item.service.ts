@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item.model';
 import { Observable, of } from 'rxjs';
+import { cartItem } from './cartItem.model';
 
 
 @Injectable({
@@ -13,9 +14,16 @@ export class ItemService {
     , 2),
     new Item("Pantof", 235.99 , "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u8epLRJb1p9dJAVfmPJnUlvXR_7ee19Yv6UZZKxeKgkrs1ygqQ", 3)
   ];
+  itemsToCart : cartItem[] =[];
   constructor() { }
 
   getItems(): Observable<Item[]>{
     return of(this.items);
+  }
+  getItemsToCart(): Observable<cartItem[]>{
+    return of(this.itemsToCart);
+  }
+  addItemsToCart(itemToCart:cartItem){
+    this.itemsToCart.push(itemToCart);
   }
 }

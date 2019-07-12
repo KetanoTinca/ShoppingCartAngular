@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item } from '../item.model';
+import { ItemService } from '../item.service';
+import { cartItem } from '../cartItem.model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,11 +10,17 @@ import { Item } from '../item.model';
 export class ShoppingListComponent implements OnInit {
 
 
-  @Input() itemList: Item[];
+  itemsToCart: cartItem[] = [];
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.getItemsToCart();
+    console.log(this.itemsToCart);
+  }
+
+  getItemsToCart(): void{
+    this.itemService.getItemsToCart().subscribe(items => this.itemsToCart = items);
   }
 
 }
