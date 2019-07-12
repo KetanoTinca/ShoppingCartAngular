@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-xs-12">
+        <app-item *ngFor="let itemElement of items" [item]="itemElement" (addToCart)="onAdd($event)"></app-item>
+        </div>
+    <ul>
+        <li *ngFor="let element of itemsToCart">{{element.item.name}} {{element.amount}}</li>
+    </ul>
+</div>

@@ -1,0 +1,23 @@
+<div
+      class="list-group-item clearfix"
+      >
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ item.name }}</h4>
+        <p class="list-group-item-text">Price: ${{ item.price }}</p>
+        <p class="list-group-item-text">Stock: {{ item.amountLeft }}</p>
+        <br>
+        <label for="amount">Amount Requested</label>
+        <input  type="number" id="amount" class="form-control" min="1" max="{{item.amountLeft}}" [(ngModel)]="amountRequested">
+        <br>
+        <button class="btn btn-primary" (click)="add(item,amountRequested)">Add</button>
+      </div>
+      
+      <span class="pull-right">
+        <img
+          [src]="item.imagePath"
+          alt="{{ item.name }}"
+          class="img-responsive"
+          style="max-height: 200px;">
+      </span>
+    </div>
+<br>
