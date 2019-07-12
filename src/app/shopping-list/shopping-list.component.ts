@@ -11,6 +11,7 @@ export class ShoppingListComponent implements OnInit {
 
 
   itemsToCart: cartItem[] = [];
+  totalAmountToCart: number;
 
   constructor(private itemService: ItemService) { }
 
@@ -21,6 +22,22 @@ export class ShoppingListComponent implements OnInit {
 
   getItemsToCart(): void{
     this.itemService.getItemsToCart().subscribe(items => this.itemsToCart = items);
+    this.calculateTotal();
+  }
+
+  calculateTotal(): void{
+    this.totalAmountToCart=0;
+    this.itemsToCart.forEach(element => {
+
+      this.totalAmountToCart += (element.details.price * element.amount);
+      
+    });
+
+  }
+
+  getTotal(): number{
+
+    return this.totalAmountToCart;
   }
 
 }
