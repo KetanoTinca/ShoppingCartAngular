@@ -26,4 +26,13 @@ export class ItemService {
   addItemsToCart(itemToCart:cartItem){
     this.itemsToCart.push(itemToCart);
   }
+
+  clearCart(){
+    this.itemsToCart = [];
+  }
+
+  removeAmount(itemToRemove: cartItem){
+      this.items.find(x => x.name == itemToRemove.details.name).amountLeft -= itemToRemove.amount;
+      
+  }
 }

@@ -40,4 +40,20 @@ export class ShoppingListComponent implements OnInit {
     return this.totalAmountToCart;
   }
 
+  clearCart(){
+    this.itemService.clearCart();
+    this.getItemsToCart();
+  }
+
+  checkOut(){
+
+    this.itemsToCart.forEach(element => {
+
+      this.itemService.removeAmount(element);
+      
+    });
+
+    this.clearCart();
+  }
+
 }

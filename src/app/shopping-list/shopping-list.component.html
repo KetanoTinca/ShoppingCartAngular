@@ -1,5 +1,10 @@
 <div class="list-group-item clearfix">
       <h3>Shopping Cart</h3>
       <app-shopping-list-item *ngFor="let itemElement of itemsToCart" [item]="itemElement"></app-shopping-list-item>
+      <hr>
       <h3 class="card-header">Total: ${{getTotal()}}</h3>
+      
+      <button class="btn btn-success pull-right" (click)="checkOut()">CheckOut</button>
+      <button class="btn btn-danger pull-right" (click)="clearCart()">Clear</button>
+
 </div>
